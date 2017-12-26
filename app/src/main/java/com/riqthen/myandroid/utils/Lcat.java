@@ -31,7 +31,7 @@ public class Lcat {
             try {
                 String threadName = Thread.currentThread().getName();
                 String lineIndicator = getLineIndicator();
-                Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + o.toString());
+                Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + o.toString());
             } catch (Exception e) {
                 Lcat.e("Object打印错误", e);
             }
@@ -43,7 +43,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + e.getMessage());
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + e.getMessage());
         }
     }
 
@@ -53,7 +53,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + i);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + i);
         }
     }
 
@@ -62,7 +62,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + d);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + d);
         }
     }
 
@@ -72,7 +72,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + l);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + l);
         }
     }
 
@@ -81,7 +81,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + b);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + b);
         }
     }
 
@@ -90,7 +90,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(strings));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(strings));
         }
     }
 
@@ -99,7 +99,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(ints));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(ints));
         }
     }
 
@@ -108,7 +108,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(doubles));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(doubles));
         }
     }
 
@@ -117,7 +117,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(bytes));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(bytes));
         }
     }
 
@@ -128,7 +128,7 @@ public class Lcat {
             try {
                 String threadName = Thread.currentThread().getName();
                 String lineIndicator = getLineIndicator();
-                Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(objects));
+                Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(objects));
             } catch (Exception e) {
                 Lcat.e("Object[]打印错误", e);
             }
@@ -140,7 +140,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(longs));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(longs));
         }
     }
 
@@ -150,7 +150,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(list));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + String.valueOf(list));
         }
     }
 
@@ -160,7 +160,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(set));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + String.valueOf(set));
         }
     }
 
@@ -169,7 +169,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(map));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + String.valueOf(map));
         }
     }
 
@@ -178,7 +178,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + s);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + s);
         }
     }
 
@@ -188,7 +188,7 @@ public class Lcat {
             try {
                 String threadName = Thread.currentThread().getName();
                 String lineIndicator = getLineIndicator();
-                Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + o.toString());
+                Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + o.toString());
             } catch (Exception e) {
                 Lcat.e("Object打印错误", e);
             }
@@ -201,7 +201,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + i);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + i);
         }
     }
 
@@ -210,7 +210,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + d);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + d);
         }
     }
 
@@ -220,7 +220,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + l);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + l);
         }
     }
 
@@ -229,7 +229,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + b);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + b);
         }
     }
 
@@ -238,7 +238,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(strings));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(strings));
         }
     }
 
@@ -247,7 +247,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(ints));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(ints));
         }
     }
 
@@ -256,7 +256,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(doubles));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(doubles));
         }
     }
 
@@ -265,7 +265,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(bytes));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(bytes));
         }
     }
 
@@ -276,7 +276,7 @@ public class Lcat {
             try {
                 String threadName = Thread.currentThread().getName();
                 String lineIndicator = getLineIndicator();
-                Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(objects));
+                Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(objects));
             } catch (Exception e) {
                 Lcat.e("Object[]打印错误", e);
             }
@@ -288,7 +288,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(longs));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + Arrays.toString(longs));
         }
     }
 
@@ -298,7 +298,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(list));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + String.valueOf(list));
         }
     }
 
@@ -308,7 +308,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(set));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + String.valueOf(set));
         }
     }
 
@@ -317,7 +317,7 @@ public class Lcat {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(map));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + String.valueOf(map));
         }
     }
 

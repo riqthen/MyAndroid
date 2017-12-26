@@ -6,7 +6,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.riqthen.myandroid.R;
-import com.riqthen.myandroid.utils.Lcat;
 import com.riqthen.myandroid.utils.MyUtils;
 
 import java.util.regex.Matcher;
@@ -38,13 +37,7 @@ public class RegularActivity extends AppCompatActivity {
     @OnClick(R.id.btn)
     public void onViewClicked() {
         String text = mEtInput.getText().toString();
-        Lcat.e("", MyUtils.RegularUtils.isLetter(text));
-        Lcat.e("", MyUtils.RegularUtils.isUpperLetter(text));
-        Lcat.e("3", MyUtils.RegularUtils.isLowerLetter(text));
-        Lcat.e("4", MyUtils.RegularUtils.isPhoneNumber(text));
-        Lcat.e("", "MyUtils.RegularUtils.isPhoneNumber(text)");
-
-//        setText("汉字", isLetter(text));
+        setText("isQQNumber", MyUtils.RegularUtils.isNaturalNumber(text));
     }
 
     public boolean isHanzi(String text) {

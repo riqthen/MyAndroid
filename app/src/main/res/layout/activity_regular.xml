@@ -5,15 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.riqthen.myandroid.regular.RegularActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.riqthen.myandroid.regular.RegularActivity">
 
     <EditText
         android:id="@+id/et_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="请输入"
-        android:imeOptions="actionGo"/>
+        android:imeOptions="actionGo"
+        android:maxLength="13"/>
 
     <Button
         android:id="@+id/btn"

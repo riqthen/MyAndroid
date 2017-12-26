@@ -158,18 +158,46 @@ public class MyUtils {
 
         /**
          * TO 匹配手机号码
-         * 移动号段：139 138 137 136 135 134 147 150 151 152 157 158 159 178 182 183 184 187 188
-         * 联通号段：130 131 132 155 156 185 186 145 176
-         * 电信号段：133 153 177 173 180 181 189
+         * 移动号段：139 138 137 136 135 134 147 150 151 152 157 158 159 178 182 183 184 187 188 新增:198
+         * 联通号段：130 131 132 155 156 185 186 145 176 新增:166
+         * 电信号段：133 153 177 173 180 181 189 新增:199
          * 虚拟运营商号段：170 171
-         * 130 131 132 133 134 135 136 137 138 139 145 147 150 151 152 153 155 156
-         * 157 158 159 170 171 173 176 177 178 180 181 182 183 184 185 186 187 188 189
+         * 合计：
+         * 130 131 132 133 134 135 136 137 138 139 145 147 150 151 152 153 155 156 157 158
+         * 159 166 170 171 173 176 177 178 180 181 182 183 184 185 186 187 188 189 198 199
          *
          * @param phone 手机号
-         * @return 是否是正确的手机号
          */
         public static boolean isPhoneNumber(String phone) {
-            return Pattern.compile("^1((3\\d)|(4[57])|(5[^4,\\D])|(7[013678])|(8\\d))\\d{8}$").matcher(phone.trim()).matches();
+            return Pattern.compile("^1((3\\d)|(4[57])|(5[^4,\\D])|(6[6])|(7[013678])|(9[89])|(8\\d))\\d{8}$").matcher(phone).matches();
+        }
+
+
+        /**
+         * 判断座机电话号码
+         *
+         * @param telephone 0开头，02712345678/071312345678/075512345678/027-12345678/0713-1234567/0755-12345678
+         */
+        public static boolean isTelephoneNumber(String telephone) {
+            return telephone.startsWith("0") && Pattern.compile("\\d{3}\\d{8}|\\d{4}\\d{8}|\\d{3}-\\d{8}|\\d{4}-\\d{7}|\\d{4}-\\d{8}").matcher(telephone).matches();
+        }
+
+        /**
+         * 判断qq号
+         */
+        public static boolean isQQNumber(String qq) {
+            return Pattern.compile("[1-9][0-9]{4,}").matcher(qq).matches();
+        }
+
+
+        /**
+         * 判断邮箱
+         *
+         * @param email **@**.***
+         * @return
+         */
+        public static boolean isEmail(String email) {
+            return Pattern.compile("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$").matcher(email).matches();
         }
 
         /**
@@ -181,17 +209,13 @@ public class MyUtils {
         }
 
         /**
-         * TO 判断文本是否为自然数
+         * TO 是否为自然数
          *
-         * @param text 文本
+         * @param number 文本
          * @return
          */
-        public static boolean isNaturalNumber(String text) {
-            if (text.equals("")) {
-                return false;
-            } else {
-                return Pattern.compile("[0-9]*").matcher(text).matches();
-            }
+        public static boolean isNaturalNumber(String number) {
+            return !TextUtils.isEmpty(number) && Pattern.compile("[0-9]*").matcher(number).matches();
         }
 
         /**
@@ -221,6 +245,14 @@ public class MyUtils {
             return Pattern.compile("^[a-z]+$").matcher(text).matches();
         }
 
+        /**
+         * 判断字母或数字
+         *
+         * @param text 1qwq213
+         */
+        public boolean isLetterOrNumber(String text) {
+            return Pattern.compile("^[A-Za-z0-9]+$").matcher(text).matches();
+        }
 
         /**
          * TO 判断文本是否为汉字(可以判断多个字)
@@ -257,14 +289,6 @@ public class MyUtils {
             return checkCodes[l_jyw] == numbers[17];
         }
 
-        /**
-         * 判断字母或数字
-         *
-         * @param text 1qwq213
-         */
-        public boolean isLetterOrNumber(String text) {
-            return Pattern.compile("^[A-Za-z0-9]+$").matcher(text).matches();
-        }
 
     }
 
