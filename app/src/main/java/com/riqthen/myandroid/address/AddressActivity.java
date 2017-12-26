@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -89,6 +90,12 @@ public class AddressActivity extends AppCompatActivity implements IAddressView {
         this.addressesBeans.clear();
         this.addressesBeans.addAll(addressesBeans);
         addressAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showEmpty() {
+        View view = LayoutInflater.from(this).inflate(R.layout.activity_weather, null);
+        addressAdapter.setEmptyView(view);
     }
 
     @OnClick(R.id.btn)

@@ -13,10 +13,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by H on 2017/11/22 09:48
+ * @author H
+ * @date 2017/11/22 09:48
+ * @description 数据操作，接口请求
  */
-
 public class RetrofitModel {
+    /**
+     * 请求地址数据
+     * @param retrofitCallback
+     */
     public static void getAddress(final RetrofitCallback<AddressEntity> retrofitCallback) {
         JSONObject jsonObject = new JSONObject();
         try {

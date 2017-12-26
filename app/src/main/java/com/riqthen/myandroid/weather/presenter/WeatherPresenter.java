@@ -81,19 +81,19 @@ public class WeatherPresenter {
         HttpRequest.post(Config.URL, params, 30000, new StringHttpRequestCallback() {
             @Override
             public void onStart() {
-                Lcat.print("开始请求", "onStart");
+                Lcat.e("开始请求", "onStart");
                 showWaitingDialog();
             }
 
             @Override
             public void onResponse(String response, Headers headers) {
                 super.onResponse(response, headers);
-                Lcat.print("已响应", response);
+                Lcat.e("已响应", response);
             }
 
             @Override
             protected void onSuccess(String s) {
-                Lcat.print("请求成功", s);
+                Lcat.e("请求成功", s);
                 String msg = null;
                 try {
                     JSONObject object = new JSONObject(s);
@@ -108,17 +108,17 @@ public class WeatherPresenter {
 
             @Override
             public void onProgress(int progress, long networkSpeed, boolean done) {
-                Lcat.print("请求中", progress + " " + networkSpeed + " " + done);
+                Lcat.e("请求中", progress + " " + networkSpeed + " " + done);
             }
 
             @Override
             public void onFailure(int errorCode, String msg) {
-                Lcat.print("请求错误", errorCode + " " + msg);
+                Lcat.e("请求错误", errorCode + " " + msg);
             }
 
             @Override
             public void onFinish() {
-                Lcat.print("请求结束", "onFinish");
+                Lcat.e("请求结束", "onFinish");
                 dismissWaitingDialog();
             }
         });

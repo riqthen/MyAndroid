@@ -1,17 +1,17 @@
 package com.riqthen.myandroid.address.presenter;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
 import com.riqthen.myandroid.Config;
-import com.riqthen.myandroid.utils.Lcat;
-import com.riqthen.myandroid.utils.TUtil;
 import com.riqthen.myandroid.address.AddressEntity;
 import com.riqthen.myandroid.address.model.IAddressModel;
 import com.riqthen.myandroid.address.model.IAddressModelImpl;
 import com.riqthen.myandroid.address.view.IAddressView;
+import com.riqthen.myandroid.utils.TUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.finalteam.okhttpfinal.HttpRequest;
@@ -49,6 +49,12 @@ public class AddressPresenter {
         }
     }
 
+    private void showEmpty() {
+        if (iAddressView != null) {
+            iAddressView.showEmpty();
+        }
+    }
+
     private void setData(List<AddressEntity.AddressDataBean.AddressesBean> addressesBeans) {
         iAddressModel.setData(addressesBeans);
     }
@@ -74,15 +80,16 @@ public class AddressPresenter {
 
             @Override
             protected void onSuccess(String s) {
-                Gson gson = new Gson();
-                AddressEntity addressEntity = gson.fromJson(s, AddressEntity.class);
-                List<AddressEntity.AddressDataBean.AddressesBean> addresses = addressEntity.getAddressData().getAddresses();
+//                AddressEntity addressEntity = new Gson().fromJson(s, AddressEntity.class);
+                AddressEntity addressEntity = JSON.parseObject(s, AddressEntity.class);
+                List<AddressEntity.AddressDataBean.AddressesBean> addresses = addressEntity.getAddressData().getAddresses() != null
+                        ? addressEntity.getAddressData().getAddresses() : new ArrayList<AddressEntity.AddressDataBean.AddressesBean>();
                 setData(addresses);
                 List<AddressEntity.AddressDataBean.AddressesBean> data = getData();
-                Lcat.print("data", data);
-                Lcat.print("getData", getData());
-
                 showAddressList(data);
+                if (data.size() <= 0) {
+                    showEmpty();
+                }
             }
 
             @Override

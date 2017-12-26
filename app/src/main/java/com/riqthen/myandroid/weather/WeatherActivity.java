@@ -37,7 +37,7 @@ public class WeatherActivity extends AppCompatActivity implements IWeatherView {
 
     @Override
     public void onInfoUpdate(final String info) {
-        Lcat.print("``````````````", info);
+        Lcat.e("``````````````", info);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

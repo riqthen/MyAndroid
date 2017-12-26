@@ -2,13 +2,17 @@ package com.riqthen.myandroid.retrofit;
 
 import com.riqthen.myandroid.Config;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by H on 2017/11/22 09:42
+ * @author H
+ * @date 2017/11/22 09:42
+ * @description 获取api对象
  */
-
 public class RetrofitHttp {
     private static volatile RetrofitHttp instance;
     private Api api;
@@ -28,9 +32,16 @@ public class RetrofitHttp {
         if (api == null) {
             synchronized (RetrofitHttp.class) {
                 if (api == null) {
+                    OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                    OkHttpClient client = builder
+                            .readTimeout(1000, TimeUnit.MILLISECONDS)
+                            .writeTimeout(1000, TimeUnit.MILLISECONDS)
+                            .connectTimeout(1000,TimeUnit.MILLISECONDS)
+                            .build();
                     Retrofit retrofit = new Retrofit.Builder()
                             .baseUrl(Config.URL_BASE)
                             .addConverterFactory(GsonConverterFactory.create())
+                            .client(client)
                             .build();
                     api = retrofit.create(Api.class);
                 }

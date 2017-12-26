@@ -15,22 +15,8 @@ import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Response;
 
-/*
- * 主要有一下几种请求方法
- * @GET         表示这是一个GET请求
- * @POST        表示这个一个POST请求
- * @PUT         表示这是一个PUT请求
- * @DELETE      表示这是一个DELETE请求
- * @HEAD        表示这是一个HEAD请求
- * @OPTIONS     表示这是一个OPTION请求
- * @PATCH       表示这是一个PAT请求
- *
- * 各种请求注解的意思
- * @Headers     添加请求头
- * @Path        替换路径
- * @Query       替代参数值，通常是结合get请求的
- * @FormUrlEncoded  用表单数据提交
- * @Field       替换参数值，是结合post请求的
+/**
+ * http://www.jianshu.com/p/308f3c54abdd
  */
 public class RetrofitActivity extends AppCompatActivity {
 

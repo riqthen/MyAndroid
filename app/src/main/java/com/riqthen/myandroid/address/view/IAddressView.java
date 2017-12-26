@@ -14,4 +14,6 @@ public interface IAddressView {
     void dismissDialog();
 
     void showAddressList(List<AddressEntity.AddressDataBean.AddressesBean> addressesBeans);
+
+    void showEmpty();
 }

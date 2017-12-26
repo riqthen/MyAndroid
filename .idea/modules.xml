@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseRecyclerViewAdapterLibrary/BaseRecyclerViewAdapterLibrary.iml" filepath="$PROJECT_DIR$/BaseRecyclerViewAdapterLibrary/BaseRecyclerViewAdapterLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyAndroid.iml" filepath="$PROJECT_DIR$/MyAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VideoTest/VideoTest.iml" filepath="$PROJECT_DIR$/VideoTest/VideoTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bdvideoplayer/bdvideoplayer.iml" filepath="$PROJECT_DIR$/bdvideoplayer/bdvideoplayer.iml" />
     </modules>
   </component>
 </project>

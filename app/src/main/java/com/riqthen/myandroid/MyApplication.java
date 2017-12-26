@@ -16,8 +16,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();
-        OkHttpFinal.getInstance().init(builder.build());
+        OkHttpFinal.getInstance().init(new OkHttpFinalConfiguration.Builder().build());
         VolleyUtils.getInstance().init(this);
         TUtil.init(this);
     }

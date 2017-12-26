@@ -7,9 +7,10 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
- * Created by H on 2017/11/22 09:41
+ * @author H
+ * @date 2017/11/22 09:41
+ * @description 接口
  */
-
 public interface Api {
     @POST("address_list.do")
     Call<AddressEntity> getAddress(@Query("adJson") String adJson);

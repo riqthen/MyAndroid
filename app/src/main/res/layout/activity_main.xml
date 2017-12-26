@@ -1,28 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.riqthen.myandroid.MainActivity">
 
-    <Button
-        android:id="@+id/btn_weather"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="天气"/>
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="地址列表"/>
+        <Button
+            android:id="@+id/btn_to_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="正则表达式"/>
 
-    <Button
-        android:id="@+id/btn_retrofit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Retrofit"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_to_weather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="天气"/>
+
+        <Button
+            android:id="@+id/btn_to_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="地址列表"/>
+
+        <Button
+            android:id="@+id/btn_to_retrofit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Retrofit"/>
+
+        <Button
+            android:id="@+id/btn_to_logging_interceptor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OkHttp日志拦截器"/>
+
+        <Button
+            android:id="@+id/btn_to_weixin_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="微信支付"/>
+
+        <Button
+            android:id="@+id/btn_to_okhttp_mvp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试okhttp和mvp"/>
+
+        <Button
+            android:id="@+id/btn_to_account_flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="账户流水mvp"/>
+
+        <Button
+            android:id="@+id/btn_to_text_to_bitmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="文字转图片"/>
+
+        <Button
+            android:id="@+id/btn_to_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="视频播放器"/>
+
+        <Button
+            android:id="@+id/btn_to_jiecao_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="节操播放器"/>
+
+        <Button
+            android:id="@+id/btn_to_giraffe_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GiraffePlayer"/>
+
+    </LinearLayout>
+</ScrollView>

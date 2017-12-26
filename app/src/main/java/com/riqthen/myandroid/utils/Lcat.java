@@ -13,560 +13,318 @@ import java.util.Set;
 
 public class Lcat {
     private static int PRIORITY = Log.ERROR;    //默认优先级
-    private static int PRIORITYD = Log.DEBUG;    //默认优先级
-    public static boolean IS_DEBUG = true;     //默认显示log
+    private static int PRIORITYD = Log.DEBUG;   //默认优先级
+    public static boolean IS_DEBUG = true;      //默认显示log
 
     //-----------> String
-    public static void print(String s) {
+    public static void e(String tag, String s) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + s);
-        }
-    }
-
-    public static void print(String tag, String s) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + s);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ----> " + s);
         }
     }
 
     //-----------> Object
-    public static void print(Object o) {
+    public static void e(String tag, Object o) {
         if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "--", "Thread: " + threadName + "／" + lineIndicator + " " + o.toString());
-        }
-    }
-
-    public static void print(String tag, Object o) {
-        try {
-            if (IS_DEBUG) {
+            try {
                 String threadName = Thread.currentThread().getName();
                 String lineIndicator = getLineIndicator();
-                Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + o.toString());
+                Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + o.toString());
+            } catch (Exception e) {
+                Lcat.e("Object打印错误", e);
             }
-        } catch (Exception e) {
-            Lcat.print("打印错误", e);
         }
     }
 
     //-----------> Exception
-    public static void print(Exception e) {
+    public static void e(String tag, Exception e) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "--", "Thread: " + threadName + "／" + lineIndicator + " " + e.getMessage());
-        }
-    }
-
-    public static void print(String tag, Exception e) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + e.getMessage());
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + e.getMessage());
         }
     }
 
 
-    //-----------> Integer
-    public static void print(int i) {
+    //-----------> int
+    public static void e(String tag, int i) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + i);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + i);
         }
     }
 
-    public static void print(String tag, int i) {
+    //-----------> double
+    public static void e(String tag, double d) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + i);
-        }
-    }
-
-    //-----------> Double
-    public static void print(double d) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + d);
-        }
-    }
-
-    public static void print(String tag, double d) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + d);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + d);
         }
     }
 
 
-    //-----------> Long
-    public static void print(long l) {
+    //-----------> long
+    public static void e(String tag, long l) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + l);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + l);
         }
     }
 
-    public static void print(String tag, long l) {
+    //-----------> boolean
+    public static void e(String tag, boolean b) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + l);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + b);
         }
     }
 
-    //-----------> Boolean
-    public static void print(boolean b) {
+    //-----------> String[]
+    public static void e(String tag, String[] strings) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + b);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(strings));
         }
     }
 
-    public static void print(String tag, boolean b) {
+    //-----------> int[]
+    public static void e(String tag, int[] ints) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + b);
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(ints));
         }
     }
 
-    //----------->  String[]
-    public static void print(String[] strings) {
+    //-----------> double[]
+    public static void e(String tag, double[] doubles) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(strings));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(doubles));
         }
     }
 
-    public static void print(String tag, String[] strings) {
+    //-----------> byte[]
+    public static void e(String tag, byte[] bytes) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(strings));
-        }
-    }
-
-    //----------->  int[]
-    public static void print(int[] ints) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(ints));
-        }
-    }
-
-    public static void print(String tag, int[] ints) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(ints));
-        }
-    }
-
-    //----------->  double[]
-    public static void print(double[] doubles) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(doubles));
-        }
-    }
-
-    public static void print(String tag, double[] doubles) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(doubles));
-        }
-    }
-
-    //----------->  byte[]
-    public static void print(byte[] bytes) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(bytes));
-        }
-    }
-
-    public static void print(String tag, byte[] bytes) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(bytes));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(bytes));
         }
     }
 
 
-    //----------->  Object[]
-    public static void print(Object[] objects) {
+    //-----------> Object[]
+    public static void e(String tag, Object[] objects) {
         if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(objects));
+            try {
+                String threadName = Thread.currentThread().getName();
+                String lineIndicator = getLineIndicator();
+                Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(objects));
+            } catch (Exception e) {
+                Lcat.e("Object[]打印错误", e);
+            }
         }
     }
 
-    public static void print(String tag, Object[] objects) {
+    //-----------> long[]
+    public static void e(String tag, Long[] longs) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(objects));
-        }
-    }
-
-    //----------->  Long[]
-    public static void print(Long[] longs) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(longs));
-        }
-    }
-
-    public static void print(String tag, Long[] longs) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(longs));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(longs));
         }
     }
 
 
     //-----------> List
-    public static <T> void print(List<T> list) {
+    public static <T> void e(String tag, List<T> list) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + String.valueOf(list));
-        }
-    }
-
-
-    public static <T> void print(String tag, List<T> list) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(list));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(list));
         }
     }
 
 
     //-----------> Set
-    public static <T> void print(Set<T> set) {
+    public static <T> void e(String tag, Set<T> set) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + String.valueOf(set));
-        }
-    }
-
-    public static <T> void print(String tag, Set<T> set) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(set));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(set));
         }
     }
 
     //-----------> Map
-    public static <K, V> void print(Map<K, V> map) {
+    public static <K, V> void e(String tag, Map<K, V> map) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + String.valueOf(map));
-        }
-    }
-
-    public static <K, V> void print(String tag, Map<K, V> map) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITY, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(map));
+            Log.println(PRIORITY, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(map));
         }
     }
 
     //-----------> String
-    public static void printd(String s) {
+    public static void d(String tag, String s) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + s);
-        }
-    }
-
-    public static void printd(String tag, String s) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + s);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + s);
         }
     }
 
     //-----------> Object
-    public static void printd(Object o) {
+    public static void d(String tag, Object o) {
         if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "--", "Thread: " + threadName + "／" + lineIndicator + " " + o.toString());
-        }
-    }
-
-    public static void printd(String tag, Object o) {
-        try {
-            if (IS_DEBUG) {
+            try {
                 String threadName = Thread.currentThread().getName();
                 String lineIndicator = getLineIndicator();
-                Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + o.toString());
+                Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + o.toString());
+            } catch (Exception e) {
+                Lcat.e("Object打印错误", e);
             }
-        } catch (Exception e) {
-            Lcat.print("打印错误", e);
         }
     }
 
 
-    //-----------> Integer
-    public static void printd(int i) {
+    //-----------> int
+    public static void d(String tag, int i) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + i);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + i);
         }
     }
 
-    public static void printd(String tag, int i) {
+    //-----------> double
+    public static void d(String tag, double d) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + i);
-        }
-    }
-
-    //-----------> Double
-    public static void printd(double d) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + d);
-        }
-    }
-
-    public static void printd(String tag, double d) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + d);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + d);
         }
     }
 
 
-    //-----------> Long
-    public static void printd(long l) {
+    //-----------> long
+    public static void d(String tag, long l) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + l);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + l);
         }
     }
 
-    public static void printd(String tag, long l) {
+    //-----------> boolean
+    public static void d(String tag, boolean b) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + l);
-        }
-    }
-
-    //-----------> Boolean
-    public static void printd(boolean b) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + b);
-        }
-    }
-
-    public static void printd(String tag, boolean b) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + b);
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + b);
         }
     }
 
     //----------->  String[]
-    public static void printd(String[] strings) {
+    public static void d(String tag, String[] strings) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(strings));
-        }
-    }
-
-    public static void printd(String tag, String[] strings) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(strings));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(strings));
         }
     }
 
     //----------->  int[]
-    public static void printd(int[] ints) {
+    public static void d(String tag, int[] ints) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(ints));
-        }
-    }
-
-    public static void printd(String tag, int[] ints) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(ints));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(ints));
         }
     }
 
     //----------->  double[]
-    public static void printd(double[] doubles) {
+    public static void d(String tag, double[] doubles) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(doubles));
-        }
-    }
-
-    public static void printd(String tag, double[] doubles) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(doubles));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(doubles));
         }
     }
 
     //----------->  byte[]
-    public static void printd(byte[] bytes) {
+    public static void d(String tag, byte[] bytes) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(bytes));
-        }
-    }
-
-    public static void printd(String tag, byte[] bytes) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(bytes));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(bytes));
         }
     }
 
 
     //----------->  Object[]
-    public static void printd(Object[] objects) {
+    public static void d(String tag, Object[] objects) {
         if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(objects));
-        }
-    }
-
-    public static void printd(String tag, Object[] objects) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(objects));
+            try {
+                String threadName = Thread.currentThread().getName();
+                String lineIndicator = getLineIndicator();
+                Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(objects));
+            } catch (Exception e) {
+                Lcat.e("Object[]打印错误", e);
+            }
         }
     }
 
     //----------->  Long[]
-    public static void printd(Long[] longs) {
+    public static void d(String tag, Long[] longs) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + Arrays.toString(longs));
-        }
-    }
-
-    public static void printd(String tag, Long[] longs) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(longs));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + Arrays.toString(longs));
         }
     }
 
 
     //-----------> List
-    public static <T> void printd(List<T> list) {
+    public static <T> void d(String tag, List<T> list) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + String.valueOf(list));
-        }
-    }
-
-
-    public static <T> void printd(String tag, List<T> list) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(list));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(list));
         }
     }
 
 
     //-----------> Set
-    public static <T> void printd(Set<T> set) {
+    public static <T> void d(String tag, Set<T> set) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + String.valueOf(set));
-        }
-    }
-
-    public static <T> void printd(String tag, Set<T> set) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(set));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(set));
         }
     }
 
     //-----------> Map
-    public static <K, V> void printd(Map<K, V> map) {
+    public static <K, V> void d(String tag, Map<K, V> map) {
         if (IS_DEBUG) {
             String threadName = Thread.currentThread().getName();
             String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, "------->", "Thread: " + threadName + "／" + lineIndicator + " " + String.valueOf(map));
-        }
-    }
-
-    public static <K, V> void printd(String tag, Map<K, V> map) {
-        if (IS_DEBUG) {
-            String threadName = Thread.currentThread().getName();
-            String lineIndicator = getLineIndicator();
-            Log.println(PRIORITYD, tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(map));
+            Log.println(PRIORITYD, "." + tag, "Thread: " + threadName + "／" + lineIndicator + tag + " ---->" + String.valueOf(map));
         }
     }
 
 
     //获取行所在的方法指示
     private static String getLineIndicator() {
-        //2代表方法的调用深度：0-getLineIndicator，1-performPrint，2-print
+        //2代表方法的调用深度：0-getLineIndicator，1-performPrint，2-e
         StackTraceElement element = ((new Exception()).getStackTrace())[2];
         String packageName = element.getClassName().substring(0, element.getClassName().lastIndexOf("."));
         return packageName + "／" +
