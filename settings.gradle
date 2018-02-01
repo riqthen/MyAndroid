@@ -1,1 +1,1 @@
-include ':app', ':bdvideoplayer', ':VideoTest', ':BaseRecyclerViewAdapterLibrary'
+include ':app', ':MyLibrary', ':app2'
