@@ -6,7 +6,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.riqthen.app2"
+        applicationId "com.riqthen.app3"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
@@ -26,7 +26,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'

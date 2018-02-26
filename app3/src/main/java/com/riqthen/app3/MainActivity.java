@@ -1,11 +1,11 @@
-package com.riqthen.app2;
+package com.riqthen.app3;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IntRange;
-import android.support.annotation.Size;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+import android.widget.Button;
 
+import com.riqthen.mylibrary.utils.Lcat;
 import com.riqthen.mylibrary.utils.TUtil;
 
 import butterknife.BindView;
@@ -14,28 +14,24 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv)
-    TextView mTv;
+    @BindView(R.id.btn)
+    Button mBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        TUtil.show(getIntent().getStringExtra("qqq"));
+        Lcat.e("111", getIntent().getStringExtra("qqq"));
+
     }
 
     @OnClick(R.id.btn)
     public void onViewClicked() {
-        TUtil.show(setRange1(new int[]{12220, 1}) + "");
-
+        Intent intent = new Intent();
+        intent.putExtra("123", "111");
+        setResult(0x3, intent);
+        finish();
     }
-
-    public boolean setRange(@IntRange(from = 10, to = 100) int range) {
-        return range > 50;
-    }
-
-    public boolean setRange1(@Size(max = 2) int[] range) {
-        return range.length > 2;
-    }
-
 }

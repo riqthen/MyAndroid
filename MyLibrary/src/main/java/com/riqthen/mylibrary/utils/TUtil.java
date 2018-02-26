@@ -26,7 +26,7 @@ import java.lang.ref.WeakReference;
  * uTime : 2017/11/14
  * desc  : 吐司相关工具类
  */
-public final class TUtil {
+public class TUtil {
     @SuppressLint("StaticFieldLeak")
     private static Application sApplication;
 

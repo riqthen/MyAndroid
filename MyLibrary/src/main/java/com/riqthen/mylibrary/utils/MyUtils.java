@@ -2,6 +2,7 @@ package com.riqthen.mylibrary.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -1096,41 +1097,65 @@ public class MyUtils {
         }
     }
 
-    public static boolean isWeixinAvailible(Context context) {
+    public static class OtherUtils {
+        /**
+         * 判断是否存在可响应 Intent 的可用 Activity
+         *
+         * @param context
+         * @param intent
+         * @return Tip:如果不是安全的intent,及没有可以响应的Activity时，可以提供下载该应用的链接
+         */
+        public static boolean isIntentSafe(Context context, Intent intent) {
+            PackageManager packageManager = context.getPackageManager();
+            List activities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+            return activities.size() > 0;
+        }
+
+        /**
+         * 判断微信是否可用
+         *
+         * @param context
+         * @return
+         */
+        public static boolean isWeixinAvailible(Context context) {
 //        boolean b = !APIUtil.getWxApi().isWXAppInstalled();
 //        return b; //也可以
-        final PackageManager packageManager = context.getPackageManager();// 获取packagemanager
-        List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// 获取所有已安装程序的包信息
-        if (pinfo != null) {
-            for (int i = 0; i < pinfo.size(); i++) {
-                String pn = pinfo.get(i).packageName;
-                if (pn.equals("com.tencent.mm")) {
-                    return true;
+            final PackageManager packageManager = context.getPackageManager();// 获取packagemanager
+            List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);// 获取所有已安装程序的包信息
+            if (pinfo != null) {
+                for (int i = 0; i < pinfo.size(); i++) {
+                    String pn = pinfo.get(i).packageName;
+                    if (pn.equals("com.tencent.mm")) {
+                        return true;
+                    }
                 }
             }
+            return false;
         }
-        return false;
+
+        /**
+         * 判断qq是否可用
+         *
+         * @param context
+         * @return
+         */
+        public static boolean isQQAvailable(Context context) {
+            final PackageManager packageManager = context.getPackageManager();
+            List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);
+            if (pinfo != null) {
+                for (int i = 0; i < pinfo.size(); i++) {
+                    String pn = pinfo.get(i).packageName;
+                    if (pn.equals("com.tencent.mobileqq")) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
     }
 
-    /**
-     * 判断qq是否可用
-     *
-     * @param context
-     * @return
-     */
-    public static boolean isQQAvailable(Context context) {
-        final PackageManager packageManager = context.getPackageManager();
-        List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);
-        if (pinfo != null) {
-            for (int i = 0; i < pinfo.size(); i++) {
-                String pn = pinfo.get(i).packageName;
-                if (pn.equals("com.tencent.mobileqq")) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    //------------------------------ Temporary Method --------------------------------------
 
     /**
      * 设置EditText的变化范围
