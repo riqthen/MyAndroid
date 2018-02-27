@@ -1,6 +1,7 @@
 package com.riqthen.app2;
 
 import android.os.Bundle;
+import android.support.annotation.CheckResult;
 import android.support.annotation.IntRange;
 import android.support.annotation.Size;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         return range > 50;
     }
 
+    @CheckResult(suggest = "#enforcePermission(String,int,int,boolean)")
     public boolean setRange1(@Size(max = 2) int[] range) {
         return range.length > 2;
     }

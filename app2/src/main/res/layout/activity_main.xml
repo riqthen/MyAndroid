@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.riqthen.app2.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.riqthen.app2.MainActivity">
 
     <Button
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"/>
+        android:text="按钮"/>
 
     <TextView
         android:id="@+id/tv"
@@ -20,5 +20,9 @@
         android:layout_height="wrap_content"
         android:text="TextView"/>
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="4"/>
 
 </LinearLayout>
